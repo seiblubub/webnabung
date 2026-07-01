@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg">
+
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+
+</div>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                💰
+            </div>
+
+            <div>
+
+                <h2>Savings</h2>
+
+                <small>Finance App</small>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <button class="menu active" data-page="dashboard">
+
+                <span>🏠</span>
+
+                Dashboard
+
+            </button>
+
+            <button class="menu" data-page="transaction">
+
+                <span>💸</span>
+
+                Transaksi
+
+            </button>
+
+            <button class="menu" data-page="target">
+
+                <span>🎯</span>
+
+                Target
+
+            </button>
+
+            <button class="menu" data-page="statistic">
+
+                <span>📈</span>
+
+                Statistik
+
+            </button>
+
+            <button class="menu" data-page="setting">
+
+                <span>⚙️</span>
+
+                Pengaturan
+
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="user-card">
+
+                <div class="avatar">
+
+                    K
+
+                </div>
+
+                <div>
+
+                    <b>King</b>
+
+                    <p>Premium</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <main>
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+
+                    Dashboard
+
+                </h1>
+
+                <p>
+
+                    Kelola tabunganmu dengan mudah.
+
+                </p>
+
+            </div>
+
+            <div class="top-right">
+
+                <button class="icon-btn">
+
+                    🔔
+
+                </button>
+
+                <button class="icon-btn">
+
+                    🌙
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <section id="dashboardPage" class="page active">
+
+            <div class="summary-grid">
+
+                <div class="summary-card balance">
+
+                    <div>
+
+                        <span>Total Saldo</span>
+
+                        <h2 id="saldo">
+
+                            Rp0
+
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-icon">
+
+                        💰
+
+                    </div>
+
+                </div>
+
+                <div class="summary-card income">
+
+                    <div>
+
+                        <span>Pemasukan</span>
+
+                        <h2 id="income">
+
+                            Rp0
+
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-icon">
+
+                        📈
+
+                    </div>
+
+                </div>
+
+                <div class="summary-card expense">
+
+                    <div>
+
+                        <span>Pengeluaran</span>
+
+                        <h2 id="expense">
+
+                            Rp0
+
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-icon">
+
+                        📉
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="content-grid">
+                <div class="left-panel">
+
+                    <div class="glass-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                Target Tabungan
+
+                            </h2>
+
+                            <span id="targetPercent">
+
+                                0%
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill"
+                                id="progressFill">
+
+                            </div>
+
+                        </div>
+
+                        <div class="target-info">
+
+                            <div>
+
+                                <small>Target</small>
+
+                                <h3 id="targetText">
+
+                                    Rp0
+
+                                </h3>
+
+                            </div>
+
+                            <div>
+
+                                <small>Sisa</small>
+
+                                <h3 id="remainText">
+
+                                    Rp0
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                        <div class="target-form">
+
+                            <input
+                                type="number"
+                                id="targetInput"
+                                placeholder="Masukkan target">
+
+                            <button id="saveTarget">
+
+                                Simpan
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="glass-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                Tambah Transaksi
+
+                            </h2>
+
+                        </div>
+
+                        <div class="form-grid">
+
+                            <select id="type">
+
+                                <option value="income">
+
+                                    ➕ Pemasukan
+
+                                </option>
+
+                                <option value="expense">
+
+                                    ➖ Pengeluaran
+
+                                </option>
+
+                            </select>
+
+                            <input
+                                id="amount"
+                                type="number"
+                                placeholder="Nominal">
+
+                            <input
+                                id="note"
+                                placeholder="Catatan">
+
+                            <button
+                                id="addTransaction">
+
+                                Tambah
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="right-panel">
+
+                    <div class="glass-card">
+
+                        <div class="card-header">
+
+                            <h2>
+
+                                Riwayat Transaksi
+
+                            </h2>
+
+                            <input
+                                id="search"
+                                placeholder="Cari transaksi">
+
+                        </div>
+
+                        <div
+                            id="historyList">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section
+            id="transactionPage"
+            class="page">
+
+            <div class="glass-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        Semua Transaksi
+
+                    </h2>
+
+                    <select id="filter">
+
+                        <option value="all">
+
+                            Semua
+
+                        </option>
+
+                        <option value="income">
+
+                            Pemasukan
+
+                        </option>
+
+                        <option value="expense">
+
+                            Pengeluaran
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    id="transactionContainer">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section
+            id="targetPage"
+            class="page">
+
+            <div class="glass-card">
+
+                <h2>
+
+                    Target Tabungan
+
+                </h2>
+
+                <div class="big-progress">
+
+                    <div
+                        id="bigProgress">
+
+                    </div>
+
+                </div>
+
+                <div class="target-detail">
+
+                    <div>
+
+                        <span>
+
+                            Target
+
+                        </span>
+
+                        <h2 id="goalMoney">
+
+                            Rp0
+
+                        </h2>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+
+                            Saldo
+
+                        </span>
+
+                        <h2 id="currentMoney">
+
+                            Rp0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section
+            id="statisticPage"
+            class="page">
+
+            <div class="stats-grid">
+
+                <div class="glass-card">
+
+                    <h2>
+
+                        Statistik Bulan Ini
+
+                    </h2>
+
+                    <div class="stat-list">
+
+                        <div class="stat-item">
+
+                            <span>Total Transaksi</span>
+
+                            <h2 id="totalTransaction">
+
+                                0
+
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-item">
+
+                            <span>Pemasukan</span>
+
+                            <h2 id="statIncome">
+
+                                Rp0
+
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-item">
+
+                            <span>Pengeluaran</span>
+
+                            <h2 id="statExpense">
+
+                                Rp0
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="glass-card">
+
+                    <h2>
+
+                        Grafik
+
+                    </h2>
+
+                    <canvas id="chartCanvas"></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section
+            id="settingPage"
+            class="page">
+
+            <div class="glass-card">
+
+                <h2>
+
+                    Pengaturan
+
+                </h2>
+
+                <div class="setting-list">
+
+                    <button id="exportData">
+
+                        📤 Export Data
+
+                    </button>
+
+                    <button id="importData">
+
+                        📥 Import Data
+
+                    </button>
+
+                    <button id="resetData">
+
+                        🗑 Reset Semua Data
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div
+    id="editModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+
+                Edit Transaksi
+
+            </h2>
+
+        </div>
+
+        <input
+            id="editAmount"
+            type="number"
+            placeholder="Nominal">
+
+        <input
+            id="editNote"
+            placeholder="Catatan">
+
+        <div class="modal-action">
+
+            <button
+                id="cancelEdit">
+
+                Batal
+
+            </button>
+
+            <button
+                id="saveEdit">
+
+                Simpan
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    id="toast"
+    class="toast">
+
+    <div class="toast-icon">
+
+        ✅
+
+    </div>
+
+    <div>
+
+        <h3 id="toastTitle">
+
+            Berhasil
+
+        </h3>
+
+        <p id="toastMessage">
+
+            Data berhasil disimpan
+
+        </p>
+
+    </div>
+
+</div>
+
+<button
+    class="fab"
+    id="fab">
+
+    +
+
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
